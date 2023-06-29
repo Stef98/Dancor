@@ -11,41 +11,61 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function loadFile(file, targetId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(content => {
+                    content = content.replace(/src="(.+?)"/g, 'src="' + file.substring(0, file.lastIndexOf('/')) + '/$1"');
+
+                    document.getElementById(targetId).innerHTML = content;
+                });
+        }
+
+        loadFile('Header.html', 'Header');
+        loadFile('Footer.html', 'Footer');
+
+    </script>
 </head>
 
 <body>
+    <div id="Header"></div>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><img src="Dancor/Images/Dancor_LogoNOBG.png" alt="Logo" width="100"
-                height="90">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-            </ul>
+    <!--Home Page-->
+    <div>
+        <!-- Background image -->
+        <div id="intro" class="bg-image" style="
+                  background-image: url(Dancor/Images/Drill.jpg); background-position: center;
+    ;background-repeat: no-repeat;
+    ;background-size: cover;
+    ;position: relative;
+                  height: 100vh;
+                  ">
+            <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.8)">
+                <div class="container d-flex align-items-center text-center h-100">
+                    <div>
+                        <h1 class="mb-5">Dancor Engineering</h1>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis molestiae
+                            laboriosam numquam expedita ullam saepe ipsam, deserunt provident corporis,
+                            sit non accusamus maxime, magni nulla quasi iste ipsa architecto? Autem!
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    <div style="height: 10px;"></div>
+        <!-- Background image -->
+    </div>
+
+    <!--About us-->
+
+    <!--About us-->
+
     <!--Services Region-->
 
     <!-- Projects region -->
-    <!--<div class="row" style="padding: 10px; justify-content: center; ">
+    <!--<div class="row" id="Services" style="padding: 10px; justify-content: center; ">
 
         <div class="col-sm-4 justify-content-center">
             <figure class="figure h-100">
@@ -77,142 +97,11 @@
 
 
 
-    <!-- Contact Us Region -->
-    <div class="container justify-content-center">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-lg-6">
-                <!-- Section Heading-->
-                <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s"
-                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                    <h2>Our <span> Team</span></h2>
-                    <div class="line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Single Advisor-->
-            <div class="col-12 col-sm-11 col-lg-6">
-                <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s"
-                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                    <!-- Team Thumb-->
-                    <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                        <!-- Social Info-->
-                        <div class="social-info">
-                            <a href="tel:072628952"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                            </a>
-                            <a href="mailto: dancoreng@gmail.com"><i class="fa fa-envelope fa-2x"
-                                    aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Team Details-->
-                    <div class="single_advisor_details_info">
-                        <h4>Johan Ferreira</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Advisor-->
-            <div class="col-12 col-sm-11 col-lg-6">
-                <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s"
-                    style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                    <!-- Team Thumb-->
-                    <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
-                        <!-- Social Info-->
-                        <div class="social-info">
-                            <a href="tel:0609771885"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                            </a>
-                            <a href="mailto: dancoreng@gmail.com"><i class="fa fa-envelope fa-2x"
-                                    aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Team Details-->
-                    <div class="single_advisor_details_info">
-                        <h4>Divan Ferreira</h4>
-                        <p class="designation">Contact Number:<a href="tel:0609771885"> 060 977 1885</a></p>
-                        <p class="designation" s>Mail:<a href="mailto: dancoreng@gmail.com"> dancoreng@gmail.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Contact us form-->
-    <div class="contact1">
-        <div class="container-contact1">
-            <div class="contact1-pic js-tilt" data-tilt>
-                <img src="Dancor/Logo/Mail Red.png" alt="IMG">
-            </div>
-
-            <form class="contact1-form validate-form">
-                <span class="contact1-form-title">
-                    <strong>Get in Touch</strong>
-                </span>
-
-                <div class="wrap-input1 validate-input" data-validate="Name is required">
-                    <input class="input1" type="text" name="name" placeholder="Name">
-                    <span class="shadow-input1"></span>
-                </div>
-
-                <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input1" type="text" name="email" placeholder="Email">
-                    <span class="shadow-input1"></span>
-                </div>
-
-                <div class="wrap-input1 validate-input" data-validate="Subject is required">
-                    <input class="input1" type="text" name="subject" placeholder="Subject">
-                    <span class="shadow-input1"></span>
-                </div>
-
-                <div class="wrap-input1 validate-input" data-validate="Message is required">
-                    <textarea class="input1" name="message" placeholder="Message"></textarea>
-                    <span class="shadow-input1"></span>
-                </div>
-
-                <div class="container-contact1-form-btn">
-                    <button class="contact1-form-btn">
-                        <span>
-                            Send Email
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                        </span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
 
     <!-- Footer -->
-    <div class="bg-dark text-center text-white ">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/dancor.engineering"
-                    role="button"><i class="fab fa-facebook-f"></i></a>
+    <div id="Footer"></div>
 
-                <!-- Google -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-google"></i></a>
 
-                <!-- Instagram -->
-                <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/dancor.engineering/"
-                    role="button"><i class="fab fa-instagram"></i></a>
-
-            </section>
-            <!-- Section: Social media -->
-        </div>
-        <!-- Grid container -->
-
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            Dancor Engineering &copy; 2013
-
-        </div>
-        <!-- Copyright -->
-    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

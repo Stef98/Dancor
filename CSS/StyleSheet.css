@@ -3,25 +3,54 @@
     --SecondaryColour: #fd3f3f;
     --ThirdColour: #6b6868;
     --ForthColour: #474646;
+
+    --boxShadow: rgba(0, 0, 0, 0.2) 0px 15px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    --borderRadius: 15px;
 }
 
 html * {
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.drop-in {
+    animation: drop-in 1s ease 200ms backwards;
+}
+
+.drop-in-2 {
+    animation: drop-in 1200ms ease 500ms backwards;
+}
+
+@keyframes drop-in {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
 }
 
 
+
+
+
+/*** Nav bar & Home page ***/
+.NavBarLink {
+    color: var(--MainColour);
+    font-size: 20px;
+}
+
+.NavBarLink:hover {
+    color: whitesmoke;
+}
 
 .navbar {
     position: fixed;
 }
 
-/*** Nav bar & Home page ***/
 .navbar-scroll .nav-link,
 .navbar-scroll .navbar-toggler .fa-bars {
     color: #fff;
@@ -229,9 +258,18 @@ body {
     color: white;
 }
 
+/*** region contact us ***/
 /***contact card***/
 
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
 
+    100% {
+        transform: translateX(0);
+    }
+}
 
 
 .single_advisor_profile {
@@ -240,10 +278,10 @@ body {
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     z-index: 1;
-    border-radius: 15px;
+    border-radius: 30px;
     -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
-
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    animation: 1s ease-out 0s 1 slideInLeft;
+    box-shadow: var(--boxShadow);
 
 }
 
@@ -377,8 +415,6 @@ body {
     color: #ffffff;
 }
 
-/*** region contact us ***/
-/*---------------------------------------------*/
 input {
     outline: none;
     border: none;
@@ -451,7 +487,6 @@ iframe {
     width: 100%;
     min-height: 100%;
     padding: 15px;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -467,7 +502,7 @@ iframe {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    box-shadow: var(--boxShadow);
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -476,8 +511,21 @@ iframe {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 5%;
+}
 
-    padding: 90px 130px 88px 148px;
+.container-mapCard {
+    width: 1163px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--boxShadow);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /*------------------------------------------------------------------
@@ -690,4 +738,138 @@ textarea.input1+.shadow-input1 {
 .alert-validate:hover:before {
     visibility: visible;
     opacity: 1;
+}
+
+/** Maps Section **/
+.boxMap {
+    box-shadow: var(--boxShadow);
+}
+
+.card.map-card .living-coral {
+    background-color: var(--MainColour);
+}
+
+.card.map-card .living-coral-text {
+    color: var(--MainColour);
+}
+
+.card.map-card .table th {
+    width: 2rem;
+}
+
+.card.map-card .pt-3-5 {
+    padding-top: 1.25rem;
+}
+
+.card.map-card .card-body {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    overflow: hidden;
+    background-color: transparent;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -webkit-border-radius: 0 !important;
+    border-radius: 15px !important;
+}
+
+.card.map-card .card-body.closed {
+    top: 100%;
+    height: 7.5rem;
+    margin-top: -7.5rem;
+}
+
+.card.map-card .map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.card.map-card .map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.card.map-card .button .btn-floating {
+    margin-top: -2.5rem;
+}
+
+
+
+/** Upload control  **/
+
+
+
+/*** Region Projects ***/
+.cardcontainer {
+    width: 350px;
+
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s;
+    box-shadow: var(--boxShadow);
+    border-radius: var(--borderRadius);
+}
+
+.photo {
+    height: 300px;
+    width: 100%;
+    border-radius: var(--borderRadius);
+}
+
+.photo img {
+    height: 100%;
+    border-radius: var(--borderRadius);
+    width: 100%;
+}
+
+
+.content {
+    width: 80%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -33px;
+}
+
+.photoText {
+    width: 90px;
+    height: 30px;
+    background-color: var(--MainColour);
+    color: white;
+    position: relative;
+    top: -30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    border-radius: 0px 15px 0px 15px;
+}
+
+.photo {
+    padding: 10px;
+    background-color: #e9e9e9;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+
+}
+
+.photo:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 1000;
+
+}
+
+.rowProjects {
+    padding-bottom: 30px;
 }

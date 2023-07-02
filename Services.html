@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <title>Dancor Engineering</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="CSS/StyleSheet.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script>
+            function loadFile(file, targetId) {
+                fetch(file)
+                    .then(response => response.text())
+                    .then(content => {
+                        content = content.replace(/src="(.+?)"/g, 'src="' + file.substring(0, file.lastIndexOf('/')) + '/$1"');
+
+                        document.getElementById(targetId).innerHTML = content;
+                    });
+            }
+
+            loadFile('Header.html', 'Header');
+            loadFile('Footer.html', 'Footer');
+
+        </script>
+        <style>
+
+        </style>
+    </head>
+</head>
+
+<body>
+    <div id="Header"></div>
+
+    <div class="container">
+
+    </div>
+
+    <div id="Footer"></div>
+
+</body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script type="text/javascript">
+    function sendEmail() {
+        debugger;
+        let nameVal = document.forms["myForm"]["name"].value;
+        let emailVal = document.forms["myForm"]["email"].value;
+        let subjectVal = document.forms["myForm"]["subject"].value;
+        let textVal = document.forms["myForm"]["message"].value;
+
+        if (nameVal == "" || emailVal == "" || textVal == "") {
+
+            alert("Pleas fill in text boxes");
+            return false;
+        }
+        else {
+            alert("Thank you for the email!!!");
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+
+</html>

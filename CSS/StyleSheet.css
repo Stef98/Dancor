@@ -9,8 +9,9 @@
 }
 
 html * {
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .drop-in {
@@ -38,6 +39,31 @@ html * {
 
 
 /*** Nav bar & Home page ***/
+.navbar-brand img {
+    width: 80px;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-brand img {
+        width: 100px;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+        padding: 0 1em;
+    }
+}
+
 .NavBarLink {
     color: var(--MainColour);
     font-size: 20px;
@@ -740,6 +766,54 @@ textarea.input1+.shadow-input1 {
     opacity: 1;
 }
 
+.footerUL {
+    display: flex;
+    padding: 0;
+}
+
+.footerUL .footerLI {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.footerUL .footerLI a {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 63px;
+    background: #333;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #666;
+    transition: .5s;
+}
+
+.footerUL .footerLI a::before {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--MainColour);
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+}
+
+.footerUL .footerLI a:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--MainColour);
+}
+
+.footerUL .footerLI a:hover {
+    color: var(--MainColour);
+    box-shadow: 0 0 5px var(--MainColour);
+    text-shadow: 0 0 5px var(--MainColour);
+}
+
 /** Maps Section **/
 .boxMap {
     box-shadow: var(--boxShadow);
@@ -800,6 +874,9 @@ textarea.input1+.shadow-input1 {
     margin-top: -2.5rem;
 }
 
+.footerText {
+    color: var(--MainColour);
+}
 
 
 /** Upload control  **/

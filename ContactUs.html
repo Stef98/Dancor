@@ -12,23 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script>
-        function loadFile(file, targetId) {
-            fetch(file)
-                .then(response => response.text())
-                .then(content => {
-                    content = content.replace(/src="(.+?)"/g, 'src="' + file.substring(0, file.lastIndexOf('/')) + '/$1"');
-                    document.getElementById(targetId).innerHTML = content;
-                });
-        }
-
-        loadFile('Header.html', 'Header');
-        loadFile('Footer.html', 'Footer');
 
     </script>
 </head>
 
 <body>
-    <div id="Header"></div>
+    <header></header>
     <div style="height: 100px;" class="bg-dark"> </div>
     <div class="container justify-content-center">
         <div class="row justify-content-center">
@@ -217,7 +206,7 @@
     </div>
 
 
-    <div id="Footer"></div>
+    <footer></footer>
     <script type="text/javascript">
         function sendEmail() {
             debugger;

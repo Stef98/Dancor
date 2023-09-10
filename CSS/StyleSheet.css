@@ -14,29 +14,9 @@ html * {
 
 }
 
-.drop-in {
-    animation: drop-in 1s ease 200ms backwards;
+.redFont {
+    color: var(--MainColour);
 }
-
-.drop-in-2 {
-    animation: drop-in 1200ms ease 500ms backwards;
-}
-
-@keyframes drop-in {
-    from {
-        opacity: 0;
-        transform: translateY(-100px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(0px);
-    }
-}
-
-
-
-
 
 /*** Nav bar & Home page ***/
 .navbar-brand img {
@@ -283,6 +263,215 @@ html * {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+
+/* This pen */
+
+.dark {
+    background: #969595;
+}
+
+
+a,
+a:hover {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+h1 {
+    color: var(--MainColour);
+}
+
+/* Cards */
+.postcard {
+    flex-wrap: wrap;
+    display: flex;
+
+    box-shadow: var(--boxShadow);
+    border-radius: var(--borderRadius);
+    margin: 0 0 2rem 0;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+
+    &.dark {
+        background-color: #dcdadf;
+    }
+
+    .t-dark {
+        color: var(--MainColour);
+    }
+
+    a {
+        color: var(--MainColour);
+    }
+
+    h1,
+    .h1 {
+        color: var(--MainColour);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .small {
+        font-size: 80%;
+    }
+
+    .postcard__title {
+        font-size: 1.75rem;
+    }
+
+    .postcard__img {
+        max-height: 180px;
+        width: 100%;
+        object-fit: cover;
+        position: relative;
+    }
+
+    .postcard__img_link {
+        display: contents;
+    }
+
+    .postcard__bar {
+        width: 50px;
+        height: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        background-color: #9c0000;
+        transition: width 0.2s ease;
+    }
+
+    .postcard__text {
+        padding: 1.5rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .postcard__preview-txt {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: justify;
+        height: 100%;
+    }
+
+    .postcard__tagbox {
+        display: flex;
+        flex-flow: row wrap;
+        font-size: 14px;
+        margin: 20px 0 0 0;
+        padding: 0;
+        justify-content: center;
+
+
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(-70deg, #ca0808, transparent 50%);
+        opacity: 1;
+        border-radius: 10px;
+    }
+
+    &:hover .postcard__bar {
+        width: 100px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .postcard {
+        flex-wrap: inherit;
+
+        .postcard__title {
+            font-size: 2rem;
+        }
+
+        .postcard__tagbox {
+            justify-content: start;
+        }
+
+        .postcard__img {
+            max-width: 300px;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .postcard__text {
+            padding: 3rem;
+            width: 100%;
+        }
+
+        .media.postcard__text:before {
+            content: "";
+            position: absolute;
+            display: block;
+            background: var(--ThirdColour);
+            top: -20%;
+            height: 130%;
+            width: 55px;
+        }
+
+        &:hover .postcard__img {
+            transform: scale(1.1);
+        }
+
+        &:nth-child(2n+1) {
+            flex-direction: row;
+        }
+
+        &:nth-child(2n+0) {
+            flex-direction: row-reverse;
+        }
+
+        &:nth-child(2n+1) .postcard__text::before {
+            left: -12px !important;
+            transform: rotate(4deg);
+        }
+
+        &:nth-child(2n+0) .postcard__text::before {
+            right: -12px !important;
+            transform: rotate(-4deg);
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .postcard__text {
+        padding: 2rem 3.5rem;
+    }
+
+    .postcard__text:before {
+        content: "";
+        position: absolute;
+        display: block;
+
+        top: -20%;
+        height: 130%;
+        width: 55px;
+    }
+
+    .postcard.dark {
+        .postcard__text:before {
+            background: var(--SecondaryColour)
+        }
+    }
+}
+
+/* COLORS */
+
+
+
+
+
+
+
+
 
 /*** region contact us ***/
 /***contact card***/

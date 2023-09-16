@@ -278,9 +278,12 @@ a:hover {
     transition: color 0.3s ease-in-out;
 }
 
-h1 {
+h1,
+h2,
+h5 {
     color: var(--MainColour);
 }
+
 
 /* Cards */
 .postcard {

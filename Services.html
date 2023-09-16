@@ -12,13 +12,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script>
-
-
-        </script>
-        <style>
-
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     </head>
 </head>
 
@@ -26,30 +20,42 @@
     <header></header>
     <div style="height: 100px;" class="bg-dark"> </div>
     <div class="container">
+        <div class="container py-4  animate__animated animate__zoomInDown">
+            <article class="postcard dark ">
 
+                <div class="postcard__text text-lg-center">
+                    <h1 class="postcard__title align-items-center"> Our Services </h1>
+
+                    <h5> We provide the following business services to our customers.</h5>
+                    <p class="postcard__preview-txt text-body"> Manufacturing of Small to Medium parts. </p>
+                    <p class="postcard__preview-txt text-body ">CNC Milling, CNC Turning, Grinding. </p>
+
+                    <p class="postcard__preview-txt text-body"> We have a full CAD-CAM design facility for design
+                        facility for design
+                        and manufacturing. </p>
+                </div>
+            </article>
+            <article class="postcard dark red">
+                <div class="postcard__text text-lg-center">
+                    <h1 class="postcard__title">Why choose us?</h1>
+                    <p class="postcard__preview-txt text-body"> We are proud to offer an outstanding machinning and
+                        manufacturing service. Here's a summary of why you can rely on our service </p>
+                    <ul>
+                        <li style="list-style-type: none;" class="postcard__preview-txt text-body"> High Quality.</li>
+                        <li style="list-style-type: none;" class="postcard__preview-txt text-body">Very competative
+                            prices.</li>
+                        <li style="list-style-type: none;" class="postcard__preview-txt text-body">On time delivery.
+                        </li>
+
+                    </ul>
+                </div>
+            </article>
+        </div>
     </div>
 
     <footer></footer>
 </body>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script type="text/javascript">
-    function sendEmail() {
-        debugger;
-        let nameVal = document.forms["myForm"]["name"].value;
-        let emailVal = document.forms["myForm"]["email"].value;
-        let subjectVal = document.forms["myForm"]["subject"].value;
-        let textVal = document.forms["myForm"]["message"].value;
 
-        if (nameVal == "" || emailVal == "" || textVal == "") {
-
-            alert("Pleas fill in text boxes");
-            return false;
-        }
-        else {
-            alert("Thank you for the email!!!");
-        }
-    }
-</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

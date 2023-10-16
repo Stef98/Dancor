@@ -10,7 +10,7 @@
 
 html * {
 
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Poppins, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
@@ -408,6 +408,10 @@ h5 {
 
     .mobile-display {
         font-size: 1.5rem !important;
+    }
+
+    .heading-text {
+        font-size: 2.5rem !important;
     }
 
 }

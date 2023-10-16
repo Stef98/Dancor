@@ -93,7 +93,7 @@
     <!-- Contact Us Region -->
     <div class="container boxMap animate__animated animate__fadeInDownBig"
         style="padding: 0px !important; border: none;">
-        <div class="card map-card ">
+        <div class="card map-card " style="padding: 0px !important; border: none;">
             <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.5900692490795!2d28.313034311380846!3d-26.177476776997615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e953d1ea70cfafd%3A0xe38336c55c46d80!2sDancor%20Engineering%20(Pty)%20Ltd!5e0!3m2!1sen!2sza!4v1688071801502!5m2!1sen!2sza"
@@ -154,40 +154,40 @@
     <div class="container ">
         <div class="contact1">
             <div class="container-contact1">
-                <div class="contact1-pic js-tilt" data-tilt>
-                    <img src="Dancor/Logo/Mail Red.png" alt="IMG">
 
-                </div>
-
-                <form class="contact1-form validate-form" action="https://formsubmit.co/dancoreng@gmail.com"
-                    method="POST" enctype="multipart/form-data">
-                    <div class="col-10 col-sm-12 col-lg-12">
-                        <span class="contact1-form-title">
-                            <strong>Get in Touch</strong>
-                        </span>
+                <img src="Dancor/Logo/Mail Red.png" alt="IMG" class="postcard__img">
 
 
+                <div class="col-md">
+                    <form class="contact1-form validate-form" action="https://formsubmit.co/dancoreng@gmail.com"
+                        method="POST" enctype="multipart/form-data">
 
+
+                        <div class="section_heading text-center animate__animated animate__zoomInDown"
+                            data-wow-delay="0.2s"
+                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                            <h1 class="display-4 mobile-display">Get in Touch</h1>
+                        </div>
                         <div class="wrap-input1 validate-input" data-validate="Name is required">
-                            <input class="input1" type="text" name="name" placeholder="Name">
+                            <input class="input1 form-control" type="text" name="name" placeholder="Name">
                             <span class="shadow-input1"></span>
                         </div>
 
                         <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                            <input class="input1" type="email" name="email" placeholder="Email Address">
+                            <input class="input1 form-control" type="email" name="email" placeholder="Email Address">
                             <span class="shadow-input1"></span>
                         </div>
 
                         <div class="wrap-input1 validate-input" data-validate="Subject is required">
-                            <input class="input1" type="text" name="subject" placeholder="Subject">
+                            <input class="input1 form-control" type="text" name="subject" placeholder="Subject">
                             <span class="shadow-input1"></span>
                         </div>
 
                         <div class="wrap-input1 validate-input" data-validate="Message is required">
-                            <textarea class="input1" name="message" placeholder="Message"></textarea>
+                            <textarea class="input1 form-control" name="message" placeholder="Message"></textarea>
                             <span class="shadow-input1"></span>
                         </div>
-                        <div class="wrap-input1">
+                        <div class="wrap-input1 form-control">
                             <input type="file" name="attachment" multiple="multiple" accept="image/*, .pdf,.doc"
                                 class="button_outer">
                         </div>
@@ -204,8 +204,9 @@
                                 </span>
                             </button>
                         </div>
-                    </div>
-                </form>
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>

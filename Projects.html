@@ -13,7 +13,10 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+
 </head>
+
+
 
 <body>
     <header></header>
@@ -22,6 +25,22 @@
         style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
         <h1 class="drop-in display-4 heading-text" style="font-size: 76px; font-weight: bold;">Projects</h1>
     </div>
+
+
+    <template id="productTemplate">
+        <div class="col-md-4 col-sm-4" style="margin: 10px;">
+            <div class="photo" style="min-width: 200px;">
+                <img src="" class="productImage">
+                <div class="photoText">
+                    <p class="productdsc"></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div id="productList" class="animate__animated animate__zoomInDown justify-content-center"></div>
+
+    <!--
     <div class="container animate__animated animate__zoomInDown ">
         <div class="row">
             <div class=" col-md">
@@ -105,7 +124,7 @@
         </div>
 
     </div>
-
+-->
 
 
 
@@ -122,7 +141,60 @@
         crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
+    <script type="application/javascript">
+        const productTemplate = document.querySelector('#productTemplate');
+        const productContainer = document.querySelector('#productList');
 
+        const products = [
+            { name: '2Goed', imageUrl: 'Dancor/Projects/2Goed.jpg' },
+            { name: 'Aluminium Bars', imageUrl: 'Dancor/Projects/AluminiumBars.jpg' },
+            { name: 'Iets', imageUrl: 'Dancor/Projects/Iets.jpg' },
+            { name: 'Fishing Weight Moulds', imageUrl: 'Dancor/Projects/FishingWeightMoulds.jpg' },
+            { name: 'Knife Bed', imageUrl: 'Dancor/Projects/KnifeBed.jpg' },
+            { name: 'Knife Gate Liners', imageUrl: 'Dancor/Projects/KnifeGateLiners.jpg' },
+            { name: 'Kingsley Caps', imageUrl: 'Dancor/Projects/KingsleyCaps.jpg' },
+            { name: '2Goed', imageUrl: 'Dancor/Projects/NylonTrolleyBaseUnit.jpg' },
+            { name: '2Goed', imageUrl: 'Dancor/Projects/Pulley.jpg' },
+            { name: '2Goed', imageUrl: 'Dancor/Projects/waterjetCutting.jpg' },
+            { name: '', imageUrl: 'Dancor/Projects/2Goed.jpg' },
+
+        ]
+
+
+        products.forEach(product => {
+            console.log(productTemplate);
+            const instance = productTemplate.content.cloneNode(true);
+            instance.querySelector('.productImage').src = product.imageUrl;
+            if (product.name != null && product.name.trim() !== '') {
+                instance.querySelector('.productdsc').textContent = product.name;
+            }
+            else {
+                const photoText = instance.querySelector('.photoText');
+                photoText.parentNode.removeChild(photoText);
+            }
+            productContainer.appendChild(instance);
+        })
+
+    </script>
+
+    <style>
+        #productList {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-md-4 {
+            flex: 0 0 calc(25% - 20px);
+            /* 4 items in a row with 20px margin between them */
+            margin: 10px;
+        }
+
+        .productImage {
+            min-width: 125px;
+
+            /* Adjust this value to your desired minimum width */
+        }
+    </style>
 
 </body>
 

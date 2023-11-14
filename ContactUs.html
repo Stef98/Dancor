@@ -19,6 +19,21 @@
     <script>
 
     </script>
+    <style>
+        .card-body {
+            transition: max-height 0.3s ease-in-out;
+            /* Adjust the duration and easing as needed */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            transition: all 2.3s ease-in-out;
+            /* Adjust the duration and easing as needed */
+        }
+    </style>
 </head>
 
 <body>
@@ -92,7 +107,10 @@
             </div>
         </div>
     </div>
-    <!-- Contact Us Region -->
+    <!-- END Contact Us Region -->
+    <!--
+        MAP
+    -->
     <div class="container boxMap animate__animated animate__fadeInDownBig"
         style="padding:0px !important; border: none;">
         <div class="card map-card col-md " style="padding: 0px !important; border: none;">
@@ -152,6 +170,9 @@
             </div>
         </div>
     </div>
+    <!--
+        END MAP
+    -->
     <!--Contact us form-->
     <div class="container ">
         <div class="contact1">
@@ -161,10 +182,8 @@
 
 
                 <div class="col-md">
-                    <form class="contact1-form validate-form" action="https://formsubmit.co/dancoreng@gmail.com"
+                    <form class="contact1-form validate-form" action="https://formsubmit.co/stefanbulls@gmail.com"
                         method="POST" enctype="multipart/form-data">
-
-
                         <div class="section_heading text-center animate__animated animate__zoomInDown"
                             data-wow-delay="0.2s"
                             style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
@@ -215,22 +234,41 @@
 
 
     <footer></footer>
-
+    <!-- Bootstrap Toast -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <!-- Toast message content will go here -->
+        </div>
+    </div>
     <script type="text/javascript">
         function sendEmail() {
-            let nameVal = document.forms["myForm"]["name"].value;
-            let emailVal = document.forms["myForm"]["email"].value;
-            let subjectVal = document.forms["myForm"]["subject"].value;
-            let textVal = document.forms["myForm"]["message"].value;
+            debugger;
+            let nameVal = document.forms["0"]["name"].value;
+            let emailVal = document.forms["0"]["email"].value;
+            let subjectVal = document.forms["0"]["subject"].value;
+            let textVal = document.forms["0"]["message"].value;
+
+            let toast = document.querySelector('.toast');
+            let toastBody = toast.querySelector('.toast-body');
 
             if (nameVal == "" || emailVal == "" || textVal == "" || subjectVal == null) {
+                toast.classList.remove('bg-success');
+                toast.classList.add('bg-danger');
+                toastBody.textContent = "Please fill in all fields.";
+            } else {
+                toast.classList.remove('bg-danger');
+                toast.classList.add('bg-success');
+                toastBody.textContent = "Thank you for the email!!!";
+                // Additional actions for a successful submission
+            }
 
-                alert("Pleas fill in text boxes");
-                return false;
-            }
-            else {
-                alert("Thank you for the email!!!");
-            }
+            // Show the Toast
+            let bootstrapToast = new bootstrap.Toast(toast);
+            bootstrapToast.show();
         }
 
         fetch("./Header.html")

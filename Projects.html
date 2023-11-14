@@ -13,7 +13,15 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js
+    "></script>
 </head>
 
 
@@ -25,7 +33,10 @@
         style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
         <h1 class="drop-in display-4 heading-text" style="font-size: 76px; font-weight: bold;">Projects</h1>
     </div>
-
+    <div class="section_heading text-center animate__animated animate__zoomInDown" data-wow-delay="0.2s"
+        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+        <h3 class="drop-in display-4 heading-text" style="font-size: 50px; font-weight: bold;">Opsie A</h3>
+    </div>
 
     <template id="productTemplate">
         <div class="col-md-4 col-sm-4" style="margin: 10px;">
@@ -37,95 +48,38 @@
             </div>
         </div>
     </template>
-
     <div id="productList" class="animate__animated animate__zoomInDown justify-content-center"></div>
 
-    <!--
-    <div class="container animate__animated animate__zoomInDown ">
-        <div class="row">
-            <div class=" col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/2Goed.jpg">
-                    <div class="photoText">2Goed</div>
-                </div>
-            </div>
-            <div class=" col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/AluminiumBars.jpg">
-                    <div class="photoText">Aluminium Bars</div>
-                </div>
-            </div>
-            <div class=" col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/Iets.jpg">
-                    <div class="photoText">Iets</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/FishingWeightMoulds.jpg">
-                    <div class="photoText">Fishing Weight Moulds</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/KnifeBed.jpg">
-                    <div class="photoText">Knife Bed</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/KnifeGateLiners.jpg">
-                    <div class="photoText">Knife Gate Liners</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/Truck.jpg">
-                    <div class="photoText">Truck Wheel Caps</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/KingsleyCaps.jpg">
-                    <div class="photoText">Kingsley Caps</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/NylonTrolleyBaseUnit.jpg">
-                    <div class="photoText">Nylon Trolley Base Unit</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/Propellar.jpg">
-                    <div class="photoText">Propellar</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/Pulley.jpg">
-                    <div class="photoText">Pulley</div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="photo">
-                    <img src="Dancor/Projects/waterjetCutting.jpg">
-                    <div class="photoText">Water Jet Cutting</div>
-                </div>
-            </div>
-        </div>
-
+    <div class="section_heading text-center animate__animated animate__zoomInDown" data-wow-delay="0.2s"
+        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+        <h3 class="drop-in display-4 heading-text" style="font-size: 50px; font-weight: bold;">Opsie B</h3>
     </div>
--->
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8  mx-auto" style="margin: 10px;">
+                <div class="photo">
+                    <div id="main-carousel" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="main-list">
+                                <!-- Main Slides will be dynamically added here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4  mx-auto" style="margin: 10px;">
+                <div class="photo" style="min-width: 200px;">
+                    <div id="thumbnail-carousel" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="thumbnail-list">
+                                <!-- Thumbnails will be dynamically added here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <footer></footer>
@@ -141,46 +95,182 @@
         crossorigin="anonymous"></script>
 
     <script src="js/main.js"></script>
+
     <script type="application/javascript">
+
         const productTemplate = document.querySelector('#productTemplate');
         const productContainer = document.querySelector('#productList');
 
         const products = [
-            { name: '2Goed', imageUrl: 'Dancor/Projects/2Goed.jpg' },
-            { name: 'Aluminium Bars', imageUrl: 'Dancor/Projects/AluminiumBars.jpg' },
-            { name: 'Iets', imageUrl: 'Dancor/Projects/Iets.jpg' },
-            { name: 'Fishing Weight Moulds', imageUrl: 'Dancor/Projects/FishingWeightMoulds.jpg' },
-            { name: 'Knife Bed', imageUrl: 'Dancor/Projects/KnifeBed.jpg' },
-            { name: 'Knife Gate Liners', imageUrl: 'Dancor/Projects/KnifeGateLiners.jpg' },
-            { name: 'Kingsley Caps', imageUrl: 'Dancor/Projects/KingsleyCaps.jpg' },
-            { name: '2Goed', imageUrl: 'Dancor/Projects/NylonTrolleyBaseUnit.jpg' },
-            { name: '2Goed', imageUrl: 'Dancor/Projects/Pulley.jpg' },
-            { name: '2Goed', imageUrl: 'Dancor/Projects/waterjetCutting.jpg' },
-            { name: '', imageUrl: 'Dancor/Projects/2Goed.jpg' },
-
+            { name: '', imageUrl: 'Dancor/Projects/Image 1.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 2.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 3.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 4.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 5.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 6.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 7.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 8.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 9.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 10.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 11.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 12.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 13.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 14.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 15.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 16.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 17.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 18.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 19.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 20.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 21.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 22.jpeg' },
+            { name: '', imageUrl: 'Dancor/Projects/Image 23.jpeg' },
         ]
 
-
-        products.forEach(product => {
-            console.log(productTemplate);
+        products.forEach((product, index) => {
             const instance = productTemplate.content.cloneNode(true);
-            instance.querySelector('.productImage').src = product.imageUrl;
+
+            // Set the image source for both the carousel and regular image
+            instance.querySelectorAll('.productImage').forEach((image, i) => {
+                image.src = product.imageUrl;
+
+                // For the carousel item, mark the first one as active
+                if (i === 0 && index === 0) {
+                    image.classList.add('active');
+                }
+            });
+
+            // Set product name text
             if (product.name != null && product.name.trim() !== '') {
                 instance.querySelector('.productdsc').textContent = product.name;
-            }
-            else {
+            } else {
                 const photoText = instance.querySelector('.photoText');
                 photoText.parentNode.removeChild(photoText);
             }
-            productContainer.appendChild(instance);
-        })
 
+            productContainer.appendChild(instance);
+        });
+
+
+
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const products = [
+                { name: '', imageUrl: 'Dancor/Projects/Image 1.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 2.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 3.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 4.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 5.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 6.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 7.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 8.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 9.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 10.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 11.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 12.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 13.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 14.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 15.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 16.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 17.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 18.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 19.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 20.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 21.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 22.jpeg' },
+                { name: '', imageUrl: 'Dancor/Projects/Image 23.jpeg' },
+
+                // ... add more products as needed
+            ];
+
+            const thumbnailList = document.getElementById('thumbnail-list');
+            const mainList = document.getElementById('main-list');
+
+            // Populate Thumbnails and Main Slides dynamically
+            products.forEach((product, index) => {
+                // Thumbnail
+                const thumbnailSlide = document.createElement('li');
+                thumbnailSlide.className = 'splide__slide ';
+                thumbnailSlide.innerHTML = `<img src="${product.imageUrl}" alt="Thumbnail ${index + 1}">`;
+                thumbnailList.appendChild(thumbnailSlide);
+
+                // Main Slide
+                const mainSlide = document.createElement('li');
+                mainSlide.className = 'splide__slide ';
+                mainSlide.style = 'radius:10px'
+                mainSlide.innerHTML = `<img src="${product.imageUrl}" alt="Slide ${index + 1}  style="border-radius: 10px;"">`;
+                mainList.appendChild(mainSlide);
+            });
+
+            // Initialize Thumbnail Carousel
+            var thumbnailCarousel = new Splide('#thumbnail-carousel', {
+                fixedWidth: 100,
+                fixedHeight: 60,
+                isNavigation: true,
+                type: 'loop',
+                gap: 5,
+                drag: 'free',
+                focus: 'center',
+                pagination: false,
+                cover: true,
+                autoScroll: {
+                    speed: 1,
+                },
+                breakpoints: {
+                    600: {
+                        fixedWidth: 66,
+                        fixedHeight: 40,
+                    },
+                },
+            }).mount();
+
+            // Initialize Main Carousel
+            var mainCarousel = new Splide('#main-carousel', {
+                type: 'fade',
+                heightRatio: 1,
+                pagination: false,
+                cover: true,
+                arrows: false,
+                breakpoints: {
+                    600: {
+                        heightRatio: 0.2,
+                    },
+                },
+                focus: 'center',
+                gap: 10,
+                breakpoints: {
+                    600: {
+                    },
+                },
+                sync: '#thumbnail-carousel', // Sync with the Thumbnail Carousel
+            }).mount();
+
+            // Sync the main carousel with the thumbnail carousel
+            thumbnailCarousel.sync(mainCarousel);
+        });
     </script>
 
     <style>
         #productList {
             display: flex;
             flex-wrap: wrap;
+        }
+
+        .splide__slide {
+            opacity: 0.5;
+        }
+
+        .splide__slide {
+            border-radius: 5px;
+            /* Add border-radius to .splide__slide */
+            overflow: hidden;
+            /* Ensure the border-radius works as expected */
+        }
+
+        .splide__slide.is-active {
+            opacity: 1;
         }
 
         .col-md-4 {
@@ -193,6 +283,23 @@
             min-width: 125px;
 
             /* Adjust this value to your desired minimum width */
+        }
+
+        /* Add your custom styles here if needed */
+
+        #main-carousel .splide__slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Maintain aspect ratio and cover the container */
+            border-radius: 10px;
+            /* Add border-radius to the images */
+        }
+
+        .photo {
+            min-width: 200px;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 

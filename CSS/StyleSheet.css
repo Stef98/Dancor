@@ -406,6 +406,10 @@ h5 {
         padding: 10px;
     }
 
+    .mobile-display-heading {
+        font-size: 3.5rem !important;
+    }
+
     .mobile-display {
         font-size: 1.5rem !important;
     }
@@ -413,6 +417,7 @@ h5 {
     .heading-text {
         font-size: 2.5rem !important;
     }
+
 
 }
 

@@ -10,7 +10,12 @@
 
 html * {
 
-    font-family: Poppins, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Roboto Flex, Poppins, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.offWhiteBG {
+    background: whitesmoke;
 
 }
 
@@ -28,7 +33,7 @@ html * {
 }
 
 .navbar .navbar-nav .nav-link {
-    color: #fff;
+    color: #e40505;
     font-size: 1.1em;
     padding: 0.5em 1em;
 }
@@ -326,7 +331,7 @@ h5 {
     }
 
     .postcard__img {
-        max-height: 180px;
+        max-height: 200px;
         width: 100%;
         object-fit: cover;
         position: relative;
@@ -341,7 +346,7 @@ h5 {
         height: 10px;
         margin: 10px 0;
         border-radius: 5px;
-        background-color: #9c0000;
+        background-color: #9c002f;
         transition: width 0.2s ease;
     }
 
@@ -377,7 +382,7 @@ h5 {
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(-70deg, #ca0808, transparent 50%);
+        background-image: linear-gradient(-70deg, #aaaab3, transparent 50%);
         opacity: 1;
         border-radius: 10px;
     }
@@ -389,8 +394,8 @@ h5 {
 
 @media screen and (max-width: 769px) {
     .postcard__img {
-        max-width: 200px;
-        max-height: 100%;
+        max-width: 150px;
+        max-height: 50px;
         transition: transform 0.3s ease;
         margin: auto;
         padding: 10px;

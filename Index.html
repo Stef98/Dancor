@@ -10,54 +10,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/StyleSheet.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Flex" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script>
 
+    <style>
+        .open-status-message {
+            color: #fd3f3f;
+            /* Set your desired color for the "We're Open!" message */
+            font-weight: 900;
+            font-size: 40px;
+        }
+
+
+        .outlineText {
+            color: #fd3f3f;
+
+            font-size: 76px;
+            font-weight: 900;
+        }
+    </style>
+    <script>
+        // Function to determine if the place is open today
+        function isPlaceOpenToday() {
+            // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+            var today = new Date().getDay();
+
+            // Business hours for each day (customize as needed)
+            var businessHours = {
+                1: { open: '07:00', close: '18:00' }, // Monday
+                2: { open: '07:00', close: '18:00' }, // Tuesday
+                3: { open: '07:00', close: '18:00' }, // Wednesday
+                4: { open: '07:00', close: '18:00' }, // Thursday
+                5: { open: '07:00', close: '18:00' }, // Friday
+                6: { open: '08:00', close: '12:00' }, // Saturday
+                // You can set Sunday as closed or adjust its hours
+            };
+
+            var todayHours = businessHours[today];
+
+            if (!todayHours) {
+                // The place is closed on this day
+                return false;
+            }
+
+            // Get the current time as "HH:mm"
+            var currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
+
+            // Compare with business hours
+            return currentTime >= todayHours.open && currentTime <= todayHours.close;
+        }
+
+        // Function to update the hero section based on open/closed status and business hours
+        function updateOpenStatus() {
+            var openStatusMessage = document.getElementById('open-status-message');
+
+            // Business hours for each day (customize as needed)
+            var businessHours = {
+                1: { open: '07:00', close: '18:00', day: 'Monday' }, // Monday
+                2: { open: '07:00', close: '18:00', day: 'Tuesday' }, // Tuesday
+                3: { open: '07:00', close: '18:00', day: 'Wednesday' }, // Wednesday
+                4: { open: '07:00', close: '18:00', day: 'Thursday' }, // Thursday
+                5: { open: '07:00', close: '18:00', day: 'Friday' }, // Friday
+                6: { open: '08:00', close: '12:00', day: 'Saturday' }, // Saturday
+            };
+
+            // Get the current day of the week
+            var today = new Date().getDay();
+
+            // Get business hours for today
+            var todayHours = businessHours[today];
+
+            setTimeout(function () {
+                if (todayHours) {
+                    openStatusMessage.innerHTML = '<span class="open-status-message animate__animated animate__rubberBand">We\'re Open!</span>  <br> Business hours today: ' + todayHours.open + ' - ' + todayHours.close;
+                }
+                else {
+                    openStatusMessage.textContent = 'Sorry, business hours information not available for today.';
+                }
+            }, 1000); // 2000 milliseconds (2 seconds) delay
+        }
+
+        // Call the update function when the page loads
+        window.onload = function () {
+            updateOpenStatus();
+
+            // Add any additional initialization code here...
+        };
     </script>
 </head>
 
-<body>
+<body class="offWhiteBG">
     <header class="sticky-top"></header>
     <!--Home Page-->
 
-    <section class="hero" style="background-image: url('Dancor/Logo/Wallpaper.jpg');background-position: center;
-        ;background-repeat: no-repeat;
-        ;background-size: cover;
-        ;position: relative;overflow: hidden;
-        height: 100vh; ">
-        <div class="container text-center text-white py-5 animate__animated animate__zoomInDown">
+
+
+
+    <section class="hero d-flex align-items-center"
+        style="background-image: url('Dancor/Logo/Wallpaper.jpg'); background-position: right; background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
+        <div class="container text-lg-center text-white py-5 animate__animated animate__zoomInDown">
             <div class="mb-4 p-4">
                 <h1 class="display-4 heading-text font-weight-bold mobile-display-heading"
-                    style="color: rgb(255, 255, 255); font-weight: 900;">Welcome
-                    to <span class="display-4 heading-text"
-                        style="font-size: 76px; color:  #b93232; font-weight: bold;">Dancor
-                        Engineering (Pty) Ltd</span> </h1>
-                <p class="lead">Bringing Precision and Quality to Your Projects</p>
-            </div>
-            <div class="container-contact1-form-btn">
-                <a class="contact1-form-btn" href="Services.html">
-                    <span>
-                        Explore Our Services
-                        <i class="fas fa-cog fa-spin" aria-hidden="true"></i>
-                    </span>
-                </a>
-            </div>
+                    style="color: #F5F5F5; font-weight: 900;">Welcome to <span
+                        class="display-4 heading-text outlineText font-weight-bold">DANCOR ENGINEERING (PTY)
+                        LTD</span>
+                </h1>
+                <p class="lead" style="font-size: 30px;">A COMPANY OF QUALITY</p>
 
+
+
+                <div class="display-4 heading-text font-weight-bold mobile-display-heading">
+                    <div class="container  text-white py-3 ">
+                        <p id="open-status-message" class="lead">Loading...</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </section>
 
 
     <div class="container">
         <div class="container py-4  animate__animated animate__zoomInDown">
             <article class="postcard dark red">
-                <!--
 
-                <img class="postcard__img" src="Dancor/Logo/engineering-helmet-cog-svgrepo-com (1).svg"
-                    alt="Image Title" />-->
-                <img class="postcard__img" src="Dancor/Logo/engineering-svgrepo-com.svg" alt="Image Title" />
+                <img class="postcard__img" src="Dancor/Logo/Book.png" alt="Image Title" />
 
 
                 <div class="postcard__text text-center">
@@ -70,7 +149,7 @@
                 </div>
             </article>
             <article class="postcard dark red">
-                <img class="postcard__img" src="Dancor/Logo/engineering-svgrepo-com.svg" alt="Image Title" />
+                <img class="postcard__img " src="Dancor/Logo/Vission.png" alt="Image Title" />
 
                 <div class="postcard__text text-center">
                     <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">Our Vission
@@ -83,9 +162,7 @@
             </article>
             <article class="postcard dark red">
 
-                <img class="postcard__img"
-                    src="Dancor/Logo/engineering-protection-hold-hand-cog-technology-svgrepo-com (1).svg"
-                    alt="Image Title" />
+                <img class="postcard__img" src="Dancor/Logo/mission.png" alt="Image Title" />
 
                 <div class="postcard__text text-center">
                     <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">Our Mission

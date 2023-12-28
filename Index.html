@@ -30,6 +30,14 @@
             font-size: 76px;
             font-weight: 900;
         }
+
+        @media (max-width: 767px) {
+            .hero {
+                background-position: left;
+                background-color: #fd3f3f;
+                /* or adjust as needed */
+            }
+        }
     </style>
     <script>
         // Function to determine if the place is open today
@@ -107,29 +115,27 @@
 
 
 
-
     <section class="hero d-flex align-items-center"
-        style="background-image: url('Dancor/Logo/Wallpaper.jpg'); background-position: right; background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
+        style="background-image: url('Dancor/Logo/EngPic.jpg'); background-position: center; opacity: 100;  background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
         <div class="container text-lg-center text-white py-5 animate__animated animate__zoomInDown">
-            <div class="mb-4 p-4">
-                <h1 class="display-4 heading-text font-weight-bold mobile-display-heading"
-                    style="color: #F5F5F5; font-weight: 900;">Welcome to <span
-                        class="display-4 heading-text outlineText font-weight-bold">DANCOR ENGINEERING (PTY)
+            <div class="mb-4 p-4 text-center text-lg-right float-right">
+                <h1 class="display-4 text-muted heading-text font-weight-bold mobile-display-heading"
+                    style="font-weight: 900;">Welcome to <br>
+                    <span class="display-4 heading-text outlineText font-weight-bold">DANCOR <br> ENGINEERING (PTY)
                         LTD</span>
                 </h1>
-                <p class="lead" style="font-size: 30px;">A COMPANY OF QUALITY</p>
+                <p class="lead text-muted" style="font-size: 30px;">A COMPANY OF QUALITY</p>
 
-
-
-                <div class="display-4 heading-text font-weight-bold mobile-display-heading">
+                <div class="display-4 heading-text font-weight-bold mobile-display-heading text-center text-lg-right">
                     <div class="container  text-white py-3 ">
-                        <p id="open-status-message" class="lead">Loading...</p>
+                        <p id="open-status-message" class="lead text-muted">Loading...</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
+
+
 
 
     <div class="container">

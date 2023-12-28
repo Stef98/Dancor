@@ -395,7 +395,7 @@ h5 {
 @media screen and (max-width: 769px) {
     .postcard__img {
         max-width: 150px;
-        max-height: 50px;
+        max-height: 100px;
         transition: transform 0.3s ease;
         margin: auto;
         padding: 10px;

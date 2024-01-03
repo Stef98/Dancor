@@ -95,7 +95,7 @@
                     openStatusMessage.innerHTML = '<span class="open-status-message animate__animated animate__rubberBand">We\'re Open!</span>  <br> Business hours today: ' + todayHours.open + ' - ' + todayHours.close;
                 }
                 else {
-                    openStatusMessage.textContent = 'Sorry, business hours information not available for today.';
+                    openStatusMessage.textContent = 'Sorry, We\'re Closed!';
                 }
             }, 1000); // 2000 milliseconds (2 seconds) delay
         }
@@ -117,14 +117,18 @@
 
     <section class="hero d-flex align-items-center"
         style="background-image: url('Dancor/Logo/EngPic.jpg'); background-position: center; opacity: 100;  background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
-        <div class="container text-lg-center text-white py-5 animate__animated animate__zoomInDown">
+        <div class="container text-lg-center text-white py-5 animate__animated animate__zoomInDown"
+            style="margin-right: 5% !important;">
             <div class="mb-4 p-4 text-center text-lg-right float-right">
                 <h1 class="display-4 text-muted heading-text font-weight-bold mobile-display-heading"
-                    style="font-weight: 900;">Welcome to <br>
-                    <span class="display-4 heading-text outlineText font-weight-bold">DANCOR <br> ENGINEERING (PTY)
+                    style="font-weight: 900; font-size: 2.0rem;">Welcome to
+                    <br>
+                    <span class="display-4 heading-text outlineText font-weight-bold" style="font-size: 3.5rem;">DANCOR
+                        ENGINEERING
+                        <br></span><span class="outlineText" style="font-size: 1.5rem">(PTY)
                         LTD</span>
                 </h1>
-                <p class="lead text-muted" style="font-size: 30px;">A COMPANY OF QUALITY</p>
+                <p class="lead text-muted" style="font-size: 2.0rem;">A COMPANY OF QUALITY</p>
 
                 <div class="display-4 heading-text font-weight-bold mobile-display-heading text-center text-lg-right">
                     <div class="container  text-white py-3 ">

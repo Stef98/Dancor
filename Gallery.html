@@ -7,21 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/StyleSheet.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="Bin\Bootstrap\bootstrap.min.css">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <script src="
-    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-    "></script>
-    <link href="
-    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-    " rel="stylesheet">
-    <script src="
-    https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js
-    "></script>
+    <link rel="icon" type="image/x-icon" href="/Dancor/Logo/favicon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <script src="js/main.js"></script>
 </head>
 
 
@@ -46,54 +52,9 @@
         </div>
     </template>
     <div id="productList" class="animate__animated animate__zoomInDown justify-content-center"></div>
-    <!-- 
-
-
-    <div class="section_heading text-center animate__animated animate__zoomInDown" data-wow-delay="0.2s"
-        style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-        <h3 class="drop-in display-4 heading-text" style="font-size: 50px; font-weight: bold;">Opsie B</h3>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-8  mx-auto" style="margin: 10px;">
-                <div class="photo">
-                    <div id="main-carousel" class="splide">
-                        <div class="splide__track">
-                            <ul class="splide__list" id="main-list">
-                                 Main Slides will be dynamically added here 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4  mx-auto" style="margin: 10px;">
-                <div class="photo" style="min-width: 200px;">
-                    <div id="thumbnail-carousel" class="splide">
-                        <div class="splide__track">
-                            <ul class="splide__list" id="thumbnail-list">
-                                 Thumbnails will be dynamically added here 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
--->
     <footer></footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
-    <script src="js/main.js"></script>
 
     <script type="application/javascript">
 
@@ -132,11 +93,6 @@
             // Set the image source for both the carousel and regular image
             instance.querySelectorAll('.productImage').forEach((image, i) => {
                 image.src = product.imageUrl;
-
-                // For the carousel item, mark the first one as active
-                if (i === 0 && index === 0) {
-                    image.classList.add('active');
-                }
             });
 
             // Set product name text
@@ -149,127 +105,11 @@
 
             productContainer.appendChild(instance);
         });
-
-
-
-
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const products = [
-                { name: '', imageUrl: 'Dancor/Projects/Image 1.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 2.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 3.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 4.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 5.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 6.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 7.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 8.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 9.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 10.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 11.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 12.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 13.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 14.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 15.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 16.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 17.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 18.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 19.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 20.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 21.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 22.jpeg' },
-                { name: '', imageUrl: 'Dancor/Projects/Image 23.jpeg' },
-
-                // ... add more products as needed
-            ];
-
-            const thumbnailList = document.getElementById('thumbnail-list');
-            const mainList = document.getElementById('main-list');
-
-            // Populate Thumbnails and Main Slides dynamically
-            products.forEach((product, index) => {
-                // Thumbnail
-                const thumbnailSlide = document.createElement('li');
-                thumbnailSlide.className = 'splide__slide ';
-                thumbnailSlide.innerHTML = `<img src="${product.imageUrl}" alt="Thumbnail ${index + 1}">`;
-                thumbnailList.appendChild(thumbnailSlide);
-
-                // Main Slide
-                const mainSlide = document.createElement('li');
-                mainSlide.className = 'splide__slide ';
-                mainSlide.style = 'radius:10px'
-                mainSlide.innerHTML = `<img src="${product.imageUrl}" alt="Slide ${index + 1}  style="border-radius: 10px;"">`;
-                mainList.appendChild(mainSlide);
-            });
-
-            // Initialize Thumbnail Carousel
-            var thumbnailCarousel = new Splide('#thumbnail-carousel', {
-                fixedWidth: 100,
-                fixedHeight: 60,
-                isNavigation: true,
-                type: 'loop',
-                gap: 5,
-                drag: 'free',
-                focus: 'center',
-                pagination: false,
-                cover: true,
-                autoScroll: {
-                    speed: 1,
-                },
-                breakpoints: {
-                    600: {
-                        fixedWidth: 66,
-                        fixedHeight: 40,
-                    },
-                },
-            }).mount();
-
-            // Initialize Main Carousel
-            var mainCarousel = new Splide('#main-carousel', {
-                type: 'fade',
-                heightRatio: 1,
-                pagination: false,
-                cover: true,
-                arrows: false,
-                breakpoints: {
-                    600: {
-                        heightRatio: 0.2,
-                    },
-                },
-                focus: 'center',
-                gap: 10,
-                breakpoints: {
-                    600: {
-                    },
-                },
-                sync: '#thumbnail-carousel', // Sync with the Thumbnail Carousel
-            }).mount();
-
-            // Sync the main carousel with the thumbnail carousel
-            thumbnailCarousel.sync(mainCarousel);
-        });
-    </script>
-
     <style>
         #productList {
             display: flex;
             flex-wrap: wrap;
-        }
-
-        .splide__slide {
-            opacity: 0.5;
-        }
-
-        .splide__slide {
-            border-radius: 5px;
-            /* Add border-radius to .splide__slide */
-            overflow: hidden;
-            /* Ensure the border-radius works as expected */
-        }
-
-        .splide__slide.is-active {
-            opacity: 1;
         }
 
         .col-md-4 {

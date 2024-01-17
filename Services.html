@@ -2,19 +2,56 @@
 <html lang="en">
 
 <head>
+    <title>Dancor Engineering</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2">
+    <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/StyleSheet.css">
 
-    <head>
-        <title>Dancor Engineering</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=2">
-        <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="CSS/StyleSheet.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    </head>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="Bin\Bootstrap\bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" type="image/x-icon" href="/Dancor/Logo/favicon.ico">
+
+    <!-- Splide js-->
+    <script src="Bin/splide/splide.min.js"></script>
+    <script src="Bin/splide/splide-extension-auto-scroll.js"></script>
+    <link rel="stylesheet" href="Bin/splide/splide.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .splide__arrow {
+            position: absolute;
+            font-size: 24px;
+            /* Adjust the font size as needed */
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .splide__arrow--prev {
+            left: -5%;
+            /* Adjust the left position as needed */
+        }
+
+        .splide__arrow--next {
+            right: -5%;
+            /* Adjust the right position as needed */
+        }
+    </style>
 </head>
 
 <body class="offWhiteBG">
@@ -27,35 +64,13 @@
 
     <div class="container  animate__animated animate__zoomInDown">
 
-        <div class="postcard dark red">
-            <img src="Dancor/Logo/Parts.png" class="postcard__img card-img-top" alt="Service 2">
-            <div class="postcard__text text-center">
-
-                <h2 class="display-4 mobile-display text-muted" style="font-size: 56px; font-weight: bold;">
-                    Manufacturing of
-                    Small to Medium parts</h2>
-            </div>
-        </div>
-        <div class="postcard dark red">
-            <img src="Dancor/Logo/robot.png" class="postcard__img" alt="Service 2">
-
-            <div class="postcard__text text-center">
-
-                <h2 class="display-4 mobile-display text-muted" style="font-size: 56px; font-weight: bold;">CNC
-                    Milling, CNC
-                    Turning, Grinding</h2>
-            </div>
-
-
-        </div>
-        <div class="postcard dark red">
-
-            <img src="Dancor/Logo/home.png" class="postcard__img" alt="Service 2">
-            <div class="postcard__text text-center">
-
-                <h2 class="display-4 mobile-display text-muted" style="font-size: 56px; font-weight: bold;">We have
-                    a full
-                    CAD-CAM desgin facility for design and machining.</h2>
+        <div class="container py-4 animate__animated animate__zoomInDown">
+            <div id="splide" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list" id="postcard-list">
+                        <!-- Post cards will be dynamically populated here -->
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -102,17 +117,68 @@
 
     <footer></footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const postcardsData = [
+            {
+                imgSrc: 'Dancor/Logo/Parts.png',
+                title: 'Manufacturing of Small to Medium parts',
+                fontSize: '56px',
+            },
+            {
+                imgSrc: 'Dancor/Logo/robot.png',
+                title: 'CNC Milling, CNC Turning, Grinding',
+                fontSize: '56px',
+            },
+            {
+                imgSrc: 'Dancor/Logo/home.png',
+                title: 'We have a full CAD-CAM design facility for design and machining.',
+                fontSize: '56px',
+            },
+        ];
 
+        const postcardList = document.getElementById('postcard-list');
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+        postcardsData.forEach(data => {
+            const postcard = document.createElement('li');
+            postcard.className = 'splide__slide';
+
+            postcard.innerHTML = `
+                <div class="postcard dark red h-100 ">
+                    <img src="${data.imgSrc}" class="postcard__img card-img-top " alt="${data.title}">
+                    <div class="postcard__text text-center ">
+                        <h2 class="display-4 mobile-display text-muted" style="font-size: ${data.fontSize}; font-weight: bold;">
+                            ${data.title}
+                        </h2>
+                    </div>
+                </div>
+            `;
+
+            postcardList.appendChild(postcard);
+        });
+
+        new Splide('#splide', {
+            type: 'fade',
+            rewind: true,
+            lazyLoad: 'nearby',
+            focus: 'center',
+            perPage: 1,
+
+            pagination: true,
+            arrows: true,
+            breakpoints: {
+                900: {
+                    perPage: 1,
+                    pagination: false,
+                    arrows: false,
+                    autoplay: true// Adjust perPage for smaller screens if needed
+                },
+            },
+
+        }).mount();
+
+    });
+</script>
+
 
 </html>

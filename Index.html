@@ -10,11 +10,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/81d73e8e4d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/StyleSheet.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Flex" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="Bin\Bootstrap\bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/x-icon" href="/Dancor/Logo/favicon.ico">
+
+    <!-- Splide js-->
+    <script src="Bin/splide/splide.min.js"></script>
+    <script src="Bin/splide/splide-extension-auto-scroll.js"></script>
+    <link rel="stylesheet" href="Bin/splide/splide.min.css">
+
+
+
+    <script src="js/main.js"></script>
     <style>
         .open-status-message {
             color: #fd3f3f;
@@ -37,39 +55,23 @@
                 background-color: #fd3f3f;
                 /* or adjust as needed */
             }
+
+            .text-lg-right {
+                text-align: center !important
+            }
+        }
+
+        .splide__arrow--prev {
+            left: -5%;
+            /* Adjust the left position as needed */
+        }
+
+        .splide__arrow--next {
+            right: -5%;
+            /* Adjust the right position as needed */
         }
     </style>
     <script>
-        // Function to determine if the place is open today
-        function isPlaceOpenToday() {
-            // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
-            var today = new Date().getDay();
-
-            // Business hours for each day (customize as needed)
-            var businessHours = {
-                1: { open: '07:00', close: '18:00' }, // Monday
-                2: { open: '07:00', close: '18:00' }, // Tuesday
-                3: { open: '07:00', close: '18:00' }, // Wednesday
-                4: { open: '07:00', close: '18:00' }, // Thursday
-                5: { open: '07:00', close: '18:00' }, // Friday
-                6: { open: '08:00', close: '12:00' }, // Saturday
-                // You can set Sunday as closed or adjust its hours
-            };
-
-            var todayHours = businessHours[today];
-
-            if (!todayHours) {
-                // The place is closed on this day
-                return false;
-            }
-
-            // Get the current time as "HH:mm"
-            var currentTime = new Date().toLocaleTimeString('en-US', { hour12: false });
-
-            // Compare with business hours
-            return currentTime >= todayHours.open && currentTime <= todayHours.close;
-        }
-
         // Function to update the hero section based on open/closed status and business hours
         function updateOpenStatus() {
             var openStatusMessage = document.getElementById('open-status-message');
@@ -100,11 +102,10 @@
             }, 1000); // 2000 milliseconds (2 seconds) delay
         }
 
-        // Call the update function when the page loads
+
         window.onload = function () {
             updateOpenStatus();
 
-            // Add any additional initialization code here...
         };
     </script>
 </head>
@@ -117,21 +118,21 @@
 
     <section class="hero d-flex align-items-center"
         style="background-image: url('Dancor/Logo/EngPic.jpg'); background-position: center; opacity: 100;  background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
-        <div class="container text-lg-center text-white py-5 animate__animated animate__zoomInDown"
-            style="margin-right: 5% !important;">
-            <div class="mb-4 p-4 text-center text-lg-right float-right">
+        <div class="container text-lg-right  text-white py-5 animate__animated animate__zoomInDown">
+            <div class="mb-4 p-4 text-lg-right  ">
                 <h1 class="display-4 text-muted heading-text font-weight-bold mobile-display-heading"
                     style="font-weight: 900; font-size: 2.0rem;">Welcome to
                     <br>
-                    <span class="display-4 heading-text outlineText font-weight-bold" style="font-size: 3.5rem;">DANCOR
+                    <span class="display-4 mobile-display-heading outlineText font-weight-bold"
+                        style="font-size: 76px; font-weight: bold;">DANCOR
                         ENGINEERING
                         <br></span><span class="outlineText" style="font-size: 1.5rem">(PTY)
                         LTD</span>
                 </h1>
                 <p class="lead text-muted" style="font-size: 2.0rem;">A COMPANY OF QUALITY</p>
 
-                <div class="display-4 heading-text font-weight-bold mobile-display-heading text-center text-lg-right">
-                    <div class="container  text-white py-3 ">
+                <div class="display-4 heading-text font-weight-bold mobile-display-heading">
+                    <div class="container text-white py-3 ">
                         <p id="open-status-message" class="lead text-muted">Loading...</p>
                     </div>
                 </div>
@@ -139,82 +140,95 @@
         </div>
     </section>
 
-
-
-
     <div class="container">
-        <div class="container py-4  animate__animated animate__zoomInDown">
-            <article class="postcard dark red">
-
-                <img class="postcard__img" src="Dancor/Logo/Book.png" alt="Image Title" />
-
-
-                <div class="postcard__text text-center">
-                    <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">Our Story
-                    </h1>
-                    <div class="text-muted text-body  mobile-display" style="font-size: 26px; font-weight: 600;">
-                        Started in 2013 as
-                        a family business with more than 30 years
-                        of experience in design, manufacture and machining</div>
+        <div class="container py-4 animate__animated animate__zoomInDown">
+            <div id="splide" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list" id="postcard-list">
+                        <!-- Post cards will be dynamically populated here -->
+                    </ul>
                 </div>
-            </article>
-            <article class="postcard dark red">
-                <img class="postcard__img " src="Dancor/Logo/Vission.png" alt="Image Title" />
-
-                <div class="postcard__text text-center">
-                    <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">Our Vision
-                    </h1>
-                    <div class="text-muted text-body  mobile-display" style="font-size: 26px; font-weight: 600;">
-                        Our vision is to be widely recognised within the community for our continuing commitment to
-                        customer service and client satisfaction.
-                    </div>
-                </div>
-            </article>
-            <article class="postcard dark red">
-
-                <img class="postcard__img" src="Dancor/Logo/mission.png" alt="Image Title" />
-
-                <div class="postcard__text text-center">
-                    <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">Our Mission
-                    </h1>
-                    <div class="text-muted text-dark  mobile-display" style="font-size: 26px; font-weight: 600;">To
-                        create value for
-                        our customers by providing exceptional
-                        service while using a professional approach. We strive to deliver superior quality projects
-                        to our clients while meeting budget and schedule goals.</div>
-                </div>
-            </article>
-
+            </div>
         </div>
     </div>
 
+
+
     </div>
-
-    <!-- Background image -->
-
-    <!--About us-->
-
-
-    <!--Services Region-->
 
 
     <!-- Footer -->
     <footer></footer>
 
+    <script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
-    <script src="js/main.js"></script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data for dynamic population
+            const postcardsData = [
+                {
+                    imgSrc: 'Dancor/Logo/Book.png',
+                    title: 'Our Story',
+                    content: 'Started in 2013 as a family business with more than 30 years of experience in design, manufacture, and machining'
+                },
+                {
+                    imgSrc: 'Dancor/Logo/Vission.png',
+                    title: 'Our Vision',
+                    content: 'Our vision is to be widely recognized within the community for our continuing commitment to customer service and client satisfaction.'
+                },
+                {
+                    imgSrc: 'Dancor/Logo/mission.png',
+                    title: 'Our Mission',
+                    content: 'To create value for our customers by providing exceptional service while using a professional approach. We strive to deliver superior quality projects to our clients while meeting budget and schedule goals.'
+                }
+            ];
+
+            const postcardList = document.getElementById('postcard-list');
+
+            // Populate post cards dynamically
+            postcardsData.forEach(data => {
+                const postcard = document.createElement('li');
+                postcard.className = 'splide__slide';
+
+                postcard.innerHTML = `
+                    <div class="postcard dark red h-100" >
+                       
+                        <img class="postcard__img" src="${data.imgSrc}" alt="Image Title" />
+                        
+                        <div class="postcard__text text-center">
+                            <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">${data.title}</h1>
+                            <div class="text-muted text-body  mobile-display" style="font-size: 26px; font-weight: 600;">${data.content}</div>
+                        </div>
+                    </div>
+                `;
+
+                postcardList.appendChild(postcard);
+            });
+
+            // Initialize Splide.js
+            new Splide('#splide', {
+                type: 'fade',
+                rewind: true,
+                lazyLoad: 'nearby',
+                focus: 'center',
+                perPage: 1,
+
+                pagination: true,
+                arrows: true,
+                breakpoints: {
+                    900: {
+                        perPage: 1,
+                        pagination: false,
+                        arrows: false,
+                        autoplay: true,// Adjust perPage for smaller screens if needed
+                    },
+                },
+
+            }).mount();
+
+        });
+    </script>
 </body>
 
 </html>

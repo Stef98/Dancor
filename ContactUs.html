@@ -174,120 +174,121 @@
     <!--
         END MAP
     -->
+
     <!--Contact us form-->
     <div class="container ">
         <div class="contact1">
             <div class="container-contact1">
-
                 <img src="Dancor/Logo/Mail Red.png" alt="IMG" class="postcard__img">
 
-
-                <div class="col-md">
+                <div class="col-md " style="width: 100%;">
                     <form class="contact1-form validate-form" action="https://formsubmit.co/stefanbulls@gmail.com"
                         method="POST" enctype="multipart/form-data">
-                        <div class="section_heading text-center animate__animated animate__zoomInDown"
-                            data-wow-delay="0.2s"
-                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="section_heading text-center" data-wow-delay="0.2s"
+                            style="visibility: visible; animation-delay: 0.2s;">
                             <h1 class="display-4 mobile-display">Get in Touch</h1>
                         </div>
-                        <div class="wrap-input1 validate-input" data-validate="Name is required">
+                        <div class="wrap-input1 validate-input">
                             <input class="input1 form-control" type="text" name="name" placeholder="Name">
                             <span class="shadow-input1"></span>
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="wrap-input1 validate-input">
                             <input class="input1 form-control" type="email" name="email" placeholder="Email Address">
                             <span class="shadow-input1"></span>
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Subject is required">
+                        <div class="wrap-input1 validate-input">
                             <input class="input1 form-control" type="text" name="subject" placeholder="Subject">
                             <span class="shadow-input1"></span>
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Message is required">
+                        <div class="wrap-input1 validate-input">
                             <textarea class="input1 form-control" name="message" placeholder="Message"></textarea>
                             <span class="shadow-input1"></span>
                         </div>
-                        <div class="wrap-input1 form-control">
+                        <div class="wrap-input1  validate-input form-control">
                             <input type="file" name="attachment" multiple="multiple" accept="image/*, .pdf,.doc"
-                                class="button_outer">
+                                class=" button_outer">
+                            <span class="shadow-input1"></span>
                         </div>
-
-
 
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <div class="container-contact1-form-btn">
                             <button class="contact1-form-btn" onclick="sendEmail()">
-                                <span>
-                                    Send Email
-                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                </span>
+                                Send Email
+                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                             </button>
                         </div>
+                        <input type="hidden" name="_next" value="/ContactUs.html">
 
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
 
     <footer></footer>
 
     <script type="text/javascript">
         function sendEmail() {
-            debugger;
-            let nameVal = document.forms["0"]["name"].value;
-            let emailVal = document.forms["0"]["email"].value;
-            let subjectVal = document.forms["0"]["subject"].value;
-            let textVal = document.forms["0"]["message"].value;
+            var name = document.querySelector('input[name="name"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var subject = document.querySelector('input[name="subject"]').value;
+            var message = document.querySelector('textarea[name="message"]').value;
 
-            let toast = document.querySelector('.toast');
-            let toastBody = toast.querySelector('.toast-body');
-
-            if (nameVal == "" || emailVal == "" || textVal == "" || subjectVal == null) {
-                toast.classList.remove('bg-success');
-                toast.classList.add('bg-danger');
-                toastBody.textContent = "Please fill in all fields.";
-            } else {
-                toast.classList.remove('bg-danger');
-                toast.classList.add('bg-success');
-                toastBody.textContent = "Thank you for the email!!!";
-                // Additional actions for a successful submission
+            // Check if any of the required fields are empty
+            if (name.trim() === '' || email.trim() === '' || subject.trim() === '' || message.trim() === '') {
+                // Show an error message or take appropriate action
+                showToast('Please fill out all required fields.', 'bg-danger');
+                return; // Prevent form submission
             }
+            else {
+                var form = document.querySelector('.contact1-form');
+                form.submit();
+                clearInputFields();
+                // Example: Show success message after form submission
+                showToast('Email sent successfully!', 'bg-success');
 
-            // Show the Toast
-            let bootstrapToast = new bootstrap.Toast(toast);
-            bootstrapToast.show();
+            }
         }
 
-        fetch("./Header.html")
-            .then(response => {
-                return response.text()
-            })
-            .then(data => {
-                document.querySelector("header").innerHTML = data;
-            });
-        fetch("./Footer.html")
-            .then(response => {
-                return response.text()
-            })
-            .then(data => {
-                document.querySelector("footer").innerHTML = data;
-            });
+        function clearInputFields() {
+            document.querySelector('input[name="name"]').value = '';
+            document.querySelector('input[name="email"]').value = '';
+            document.querySelector('input[name="subject"]').value = '';
+            document.querySelector('textarea[name="message"]').value = '';
+        }
 
-    </script>
+        function showToast(message, backgroundColorClass) {
+            var toastElement = document.querySelector('.toast');
+            toastElement.querySelector('.toast-body').innerText = message;
 
+            // Remove existing background color classes and add the specified class
+            toastElement.classList.remove('bg-danger', 'bg-success');
+            toastElement.classList.add(backgroundColorClass);
 
-    <script>
+            var toast = new bootstrap.Toast(toastElement, { delay: 5000 });
+            toast.show();
+        }
         const card = document.querySelector('.map-card');
         const cardBody = card.querySelector('.card-body')
 
         card.addEventListener('click', () => {
             cardBody.classList.toggle('closed')
         })
+
     </script>
 </body>
 

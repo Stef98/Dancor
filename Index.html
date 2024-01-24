@@ -113,13 +113,12 @@
 <body class="offWhiteBG">
     <header class="sticky-top"></header>
     <!--Home Page-->
-
-
-
     <section class="hero d-flex align-items-center"
         style="background-image: url('Dancor/Logo/EngPic.jpg'); background-position: center; opacity: 100;  background-repeat: no-repeat; background-size: cover; position: relative; overflow: hidden; height: 100vh;">
         <div class="container text-lg-right  text-white py-5 animate__animated animate__zoomInDown">
+
             <div class="mb-4 p-4 text-lg-right  ">
+
                 <h1 class="display-4 text-muted heading-text font-weight-bold mobile-display-heading"
                     style="font-weight: 900; font-size: 2.0rem;">Welcome to
                     <br>
@@ -140,16 +139,9 @@
         </div>
     </section>
 
-    <div class="container">
-        <div class="container py-4 animate__animated animate__zoomInDown">
-            <div id="splide" class="splide">
-                <div class="splide__track">
-                    <ul class="splide__list" id="postcard-list">
-                        <!-- Post cards will be dynamically populated here -->
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="container p-3" id="contentContainer">
+
+
     </div>
 
 
@@ -161,72 +153,41 @@
     <footer></footer>
 
     <script>
+        const sections = [
+            {
+                imgSrc: "Dancor/Logo/Book.png",
+                heading: "Our Story",
+                subheading: "Started in 2013 as a family business with more than 30 years of experience in design, manufacture and machining"
+            },
+            {
+                imgSrc: "Dancor/Logo/Vission.png",
+                heading: "Our Vision",
+                subheading: "Our vision is to be widely recognised within the community for our continuing commitment to customer service and client satisfaction."
+            },
+            {
+                imgSrc: "Dancor/Logo/mission.png",
+                heading: "Our Mission",
+                subheading: "To create value for our customers by providing exceptional service while using a professional approach. We strive to deliver superior quality projects to our clients while meeting budget and schedule goals."
+            }
+        ];
 
+        // Get the container to append content
+        const container = document.getElementById("contentContainer");
 
+        // Loop through sections and populate dynamically
+        sections.forEach((section) => {
+            const article = document.createElement("article");
+            article.classList.add("postcard", "dark", "red");
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Data for dynamic population
-            const postcardsData = [
-                {
-                    imgSrc: 'Dancor/Logo/Book.png',
-                    title: 'Our Story',
-                    content: 'Started in 2013 as a family business with more than 30 years of experience in design, manufacture, and machining'
-                },
-                {
-                    imgSrc: 'Dancor/Logo/Vission.png',
-                    title: 'Our Vision',
-                    content: 'Our vision is to be widely recognized within the community for our continuing commitment to customer service and client satisfaction.'
-                },
-                {
-                    imgSrc: 'Dancor/Logo/mission.png',
-                    title: 'Our Mission',
-                    content: 'To create value for our customers by providing exceptional service while using a professional approach. We strive to deliver superior quality projects to our clients while meeting budget and schedule goals.'
-                }
-            ];
+            article.innerHTML = `
+      <img class="postcard__img" src="${section.imgSrc}" alt="Image Title" />
+      <div class="postcard__text text-center">
+        <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">${section.heading}</h1>
+        <div class="text-muted text-body  mobile-display" style="font-size: 26px; font-weight: 600;">${section.subheading}</div>
+      </div>
+    `;
 
-            const postcardList = document.getElementById('postcard-list');
-
-            // Populate post cards dynamically
-            postcardsData.forEach(data => {
-                const postcard = document.createElement('li');
-                postcard.className = 'splide__slide';
-
-                postcard.innerHTML = `
-                    <div class="postcard dark red h-100" >
-                       
-                        <img class="postcard__img" src="${data.imgSrc}" alt="Image Title" />
-                        
-                        <div class="postcard__text text-center">
-                            <h1 class="display-4 mobile-display-heading" style="font-size: 76px; font-weight: bold;">${data.title}</h1>
-                            <div class="text-muted text-body  mobile-display" style="font-size: 26px; font-weight: 600;">${data.content}</div>
-                        </div>
-                    </div>
-                `;
-
-                postcardList.appendChild(postcard);
-            });
-
-            // Initialize Splide.js
-            new Splide('#splide', {
-                type: 'fade',
-                rewind: true,
-                lazyLoad: 'nearby',
-                focus: 'center',
-                perPage: 1,
-
-                pagination: true,
-                arrows: true,
-                breakpoints: {
-                    900: {
-                        perPage: 1,
-                        pagination: false,
-                        arrows: false,
-                        autoplay: true,// Adjust perPage for smaller screens if needed
-                    },
-                },
-
-            }).mount();
-
+            container.appendChild(article);
         });
     </script>
 </body>

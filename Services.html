@@ -64,14 +64,7 @@
 
     <div class="container  animate__animated animate__zoomInDown">
 
-        <div class="container py-4 animate__animated animate__zoomInDown">
-            <div id="splide" class="splide">
-                <div class="splide__track">
-                    <ul class="splide__list" id="postcard-list">
-                        <!-- Post cards will be dynamically populated here -->
-                    </ul>
-                </div>
-            </div>
+        <div class="container py-4" id="serviceContainer">
         </div>
 
         <div class="postcard dark red">
@@ -118,65 +111,38 @@
     <footer></footer>
 </body>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const postcardsData = [
-            {
-                imgSrc: 'Dancor/Logo/Parts.png',
-                title: 'Manufacturing of Small to Medium parts',
-                fontSize: '56px',
-            },
-            {
-                imgSrc: 'Dancor/Logo/robot.png',
-                title: 'CNC Milling, CNC Turning, Grinding',
-                fontSize: '56px',
-            },
-            {
-                imgSrc: 'Dancor/Logo/home.png',
-                title: 'We have a full CAD-CAM design facility for design and machining.',
-                fontSize: '56px',
-            },
-        ];
+    // Sample data for each service card
+    const services = [
+        {
+            imgSrc: "Dancor/Logo/Parts.png",
+            heading: "Manufacturing of Small to Medium parts"
+        },
+        {
+            imgSrc: "Dancor/Logo/robot.png",
+            heading: "CNC Milling, CNC Turning, Grinding"
+        },
+        {
+            imgSrc: "Dancor/Logo/home.png",
+            heading: "We have a full CAD-CAM design facility for design and machining."
+        }
+    ];
 
-        const postcardList = document.getElementById('postcard-list');
+    // Get the container to append service cards
+    const serviceContainer = document.getElementById("serviceContainer");
 
-        postcardsData.forEach(data => {
-            const postcard = document.createElement('li');
-            postcard.className = 'splide__slide';
+    // Loop through services and populate dynamically
+    services.forEach((service) => {
+        const serviceCard = document.createElement("div");
+        serviceCard.classList.add("postcard", "dark", "red");
 
-            postcard.innerHTML = `
-                <div class="postcard dark red h-100 ">
-                    <img src="${data.imgSrc}" class="postcard__img card-img-top " alt="${data.title}">
-                    <div class="postcard__text text-center ">
-                        <h2 class="display-4 mobile-display text-muted" style="font-size: ${data.fontSize}; font-weight: bold;">
-                            ${data.title}
-                        </h2>
-                    </div>
-                </div>
-            `;
+        serviceCard.innerHTML = `
+      <img src="${service.imgSrc}" class="postcard__img card-img-top" alt="Service Image">
+      <div class="postcard__text text-center">
+        <h2 class="display-4 mobile-display text-muted" style="font-size: 56px; font-weight: bold;">${service.heading}</h2>
+      </div>
+    `;
 
-            postcardList.appendChild(postcard);
-        });
-
-        new Splide('#splide', {
-            type: 'fade',
-            rewind: true,
-            lazyLoad: 'nearby',
-            focus: 'center',
-            perPage: 1,
-
-            pagination: true,
-            arrows: true,
-            breakpoints: {
-                900: {
-                    perPage: 1,
-                    pagination: false,
-                    arrows: false,
-                    autoplay: true// Adjust perPage for smaller screens if needed
-                },
-            },
-
-        }).mount();
-
+        serviceContainer.appendChild(serviceCard);
     });
 </script>
 
